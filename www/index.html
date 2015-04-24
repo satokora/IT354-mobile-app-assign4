@@ -8,47 +8,67 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         
-        <title>Hello World</title>
+
+        <title>Assignment 4</title>
     </head>
     <body>
         <div id="homeScreen" data-role="page">
-        <img src="img/green-leaf.jpg" class="banner" />
+        <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
             <ul data-role="listview" data-inset="true" class="ui-nodisc-icon ui-alt-icon">
-                <li><a href="#allEntry" >See all entries</a></li>
+                <li><a href="#allEntry">See all entries</a></li>
                 <li><a href="#searchId">Search By user ID</a></li>
                 <li><a href="#searchKey">Search By keyword</a></li>
-                <li><a href="#newRec">Add a new record</a></li>
+                <li id="getNewId"><a href="#newRec">Add a new record</a></li>
 
             </ul>
             </div>
         </div>
-        <div id="searchId" data-role="page">
-            <img src="img/green-leaf.jpg" class="banner" />
+        <div id="allEntry" data-role="page">
+            <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
-                <form action="">
-                    <label for="search-basic">User ID</label>
-                    <input type="search" name="search" id="search-basic" value="" />
-                    <input type="submit" name="go" value="Search by ID" data-theme="b">
+                <h4>All entries:</h4>
+                <div id="results-all"></div>
+                <div id="pages"></div>
+            </div>
+        </div>
+        <div id="searchId" data-role="page">
+            <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
+            <div data-role="content">
+                <form id="by-id">
+                    <label for="search-userid">Search by User ID</label>
+                    <input type="search" name="search" id="search-userid" value="" />
+                    <input type="button" id="search-id-btn" name="go-id" value="Search" data-theme="b">
                 </form>
+                <div id="results-id"></div>
             </div>
         </div>
         <div id="searchKey" data-role="page">
-            <img src="img/green-leaf.jpg" class="banner" />
+            <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
-                <form action="">
-                    <label for="search-basic">Keyword</label>
-                    <input type="search" name="search" id="search-basic" value="" />
-                    <input type="submit" name="go" value="Search by Keyword" data-theme="b">
+                <form id="by-key">
+                    <label for="search-key">Search by Keyword</label>
+                    <input type="search" name="search" id="search-key" value="" />
+                    <input type="button" id="search-key-btn" name="go-key" value="Search" data-theme="b">
                 </form>
+                <div id="results-key"></div>
             </div>
         </div>
         <div id="newRec" data-role="page">
-            <img src="img/green-leaf.jpg" class="banner" />
+            <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
-                <form action="">
+                <h4>Let's add a new contact</h4>
+                <form id="form-new-record" method="post">
+                    <div data-role="fieldcontain">
+                        <label for="id">New user ID:</label>
+                        <input type="text" name="userid" id="id" value="88" disabled />
+                    </div>
                     <div data-role="fieldcontain">
                         <label for="fname">First Name:</label>
                         <input type="text" name="fname" id="fname" value=""  />
@@ -69,12 +89,17 @@
                 </form>
             </div>
         </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/json.js"></script>
+        <script src="js/jquery-bootstrap-pagination.js"></script>
+        <script src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+        
     </body>
 </html>

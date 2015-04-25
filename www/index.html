@@ -7,24 +7,24 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <!-- Optional theme -->
         <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
         <title>Assignment 5</title>
     </head>
     <body>
         <div id="homeScreen" data-role="page">
         <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
-            <ul data-role="listview" data-inset="true" class="ui-nodisc-icon ui-alt-icon">
-                <li><a href="#allEntry">See all entries</a></li>
+            <ul data-role="listview" id="menu-list" data-inset="true" class="ui-nodisc-icon ui-alt-icon">
                 <li><a href="#searchId">Search By user ID</a></li>
                 <li><a href="#searchKey">Search By keyword</a></li>
+                <li><a href="#allEntry">See all entries</a></li>
                 <li id="getNewId"><a href="#newRec">Add a new record</a></li>
-
             </ul>
             </div>
             <div data-role="footer"  data-theme="b" data-position="fixed">
@@ -103,16 +103,14 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="cordova.js"></script>
+
         <script src="js/jquery-1.11.2.min.js"></script>
+        
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-bootstrap-pagination.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/json.js"></script>
-        <script src="js/jquery-bootstrap-pagination.js"></script>
-        <script src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+
         
     </body>
 </html>

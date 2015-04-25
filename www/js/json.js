@@ -1,10 +1,11 @@
 // For the page that shows all records
-// $("a[href='#allEntry']").click(function() {
-//     $("#allEntry").load();
-// });
-$("#homeScreen").ready(function() {
+
+
+$(document).on('pageinit', "#allEntry", function(event) {
+
     var $count=0;
     var $numPerPage=20;
+    $("menu-list").listview("refresh");
     // get total count of rows
     $.ajax({
         type: "GET",

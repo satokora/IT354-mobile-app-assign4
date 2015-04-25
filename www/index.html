@@ -9,12 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
         <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        
-
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <title>Assignment 5</title>
     </head>
     <body>
@@ -29,6 +27,9 @@
 
             </ul>
             </div>
+            <div data-role="footer"  data-theme="b" data-position="fixed">
+                <h4><a href="#homeScreen">Back to top menu</a></h4>
+            </div>
         </div>
         <div id="allEntry" data-role="page">
             <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
@@ -36,6 +37,9 @@
                 <h4>All entries:</h4>
                 <div id="results-all"></div>
                 <div id="pages"></div>
+            </div>
+            <div data-role="footer"  data-theme="b" data-position="fixed">
+                <h4><a href="#homeScreen">Back to top menu</a></h4>
             </div>
         </div>
         <div id="searchId" data-role="page">
@@ -48,6 +52,9 @@
                 </form>
                 <div id="results-id"></div>
             </div>
+            <div data-role="footer"  data-theme="b" data-position="fixed">
+                <h4><a href="#homeScreen">Back to top menu</a></h4>
+            </div>
         </div>
         <div id="searchKey" data-role="page">
             <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
@@ -58,6 +65,9 @@
                     <input type="button" id="search-key-btn" name="go-key" value="Search" data-theme="b">
                 </form>
                 <div id="results-key"></div>
+            </div>
+            <div data-role="footer"  data-theme="b" data-position="fixed">
+                <h4><a href="#homeScreen">Back to top menu</a></h4>
             </div>
         </div>
         <div id="newRec" data-role="page">
@@ -88,12 +98,15 @@
                     <input type="submit" name="go" value="Submit" data-theme="b">
                 </form>
             </div>
+            <div data-role="footer"  data-theme="b" data-position="fixed">
+                <h4><a href="#homeScreen">Back to top menu</a></h4>
+            </div>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/json.js"></script>
         <script src="js/jquery-bootstrap-pagination.js"></script>
         <script src="js/index.js"></script>

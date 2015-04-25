@@ -1,5 +1,8 @@
 // For the page that shows all records
-$("#allEntry").ready(function() {
+// $("a[href='#allEntry']").click(function() {
+//     $("#allEntry").load();
+// });
+$("#homeScreen").ready(function() {
     var $count=0;
     var $numPerPage=20;
     // get total count of rows
@@ -82,29 +85,6 @@ $("#allEntry").ready(function() {
 
 });
 
-// $('ul#series.pagination li').bind('click', function() {
-//     alert("clicked");
-// } );
-
-// var paginationHandler = function() {
-//     alert("clicked");
-//     $("#pagination>li").removeClass('active');
-//     a.addClass('active');
-// };
-
-
-// jQuery(document).ready(function($) {
-//     $("ul#pagination li a").click(function(a){
-//     alert("clicked");
-//     $("#pagination>li").removeClass('active');
-//     a.addClass('active');
-//     // $num = $(this).val();
-//     // if($(this).hasClass( "foo" ))
-// });
-// });
-
-
-
 
 // Search by id if the search by id button is clicked
 $("#search-id-btn").click(function(){
@@ -117,7 +97,6 @@ $("#search-id-btn").click(function(){
             $("#results-id").html(
                 '<h4>One user found:</h4>'
                 + '<table data-role="table" class="ui-responsive table-stroke ui-table ui-table-reflow" id="my-table">'
-               // + '<tr><th data-priority="1">User ID</th><th data-priority="persist">Name</th><th data-priority="2">Email</th><th data-priority="3">Zip Code</th></tr>'
                 + '<tr><td bgcolor="#cfe694"><b class="ui-table-cell-label">ID: Name</b>'+ data[0].id + ": " + data[0].fname + ' ' + data[0].lname + "</td>"
                 + '<td bgcolor="#ffffff"><b class="ui-table-cell-label">Email</b>'+ data[0].email + "</td>"
                 + '<td bgcolor="#ffffff"><b class="ui-table-cell-label">Zipcode</b>'+ data[0].zip + "</td>"
@@ -152,9 +131,9 @@ $("#search-key-btn").click(function(){
             
             $.each(data, function(index, val) {
                 $results +=
-                '<tr><td><b class="ui-table-cell-label">ID: Name</b>'+ data[index].id + ": " + data[index].fname + ' ' + data[index].lname + "</td>"
-                + '<td><b class="ui-table-cell-label">Email</b>'+ data[index].email + "</td>"
-                + '<td><b class="ui-table-cell-label">Zipcode</b>'+ data[index].zip + "</td></tr>";
+                '<tr><td bgcolor="#cfe694"><b class="ui-table-cell-label">ID: Name</b>'+ data[index].id + ": " + data[index].fname + ' ' + data[index].lname + "</td>"
+                + '<td bgcolor="#ffffff"><b class="ui-table-cell-label">Email</b>'+ data[index].email + "</td>"
+                + '<td bgcolor="#ffffff"><b class="ui-table-cell-label">Zipcode</b>'+ data[index].zip + "</td></tr>";
             });
 
             $("#results-key").html($results + "</table>");

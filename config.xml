@@ -4,8 +4,8 @@
     <description>
         This app exchange data with my own built rest api service and retrieves data about users.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="skora@ilstu.edu" href="http://skora.it354.com">
+        Satoko Kora
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />

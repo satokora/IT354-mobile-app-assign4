@@ -14,21 +14,25 @@ $(document).on('pageinit', "#allEntry", function(event) {
         success: function(data){
             $count=parseInt(data);
 
-            // if there are more than 20 records, pagination component will be shown
+            // if there are more than 20 records, pagination component will be shown 
+            // by using jquery-bootstrap-pagination.js
             if($count > $numPerPage){
+
+                // get total number of pages (records devided by 20)
                 $num = $count / $numPerPage;
                 if($count % $numPerPage > 0){
                     $num += 1;
                 }
                 $("#pages").pagination({
                   total_pages: $num,
-                  current_page: 1,
-                  callback: function(event, page) {
+                  current_page: 1, //default selected page
+                  callback: function(event, page) { // if the pagination is clicked
                     $.ajax({
                         type: "GET",
-                        url: 'http://skora.it354.com/restserver/api/email/users/page/'+page+'/format/json',
+                        url: 'http://skora.it354.com/restserver/api/email/users/page/'+page+'/format/json', // select the page and specify corresponding records
                         dataType: 'jsonp',
                         success: function(data){
+                            // make a list of obtained 20 records and create the page
                             var $results = "";
                             $results +=
                             '<table data-role="table" class="ui-responsive table-stroke ui-table ui-table-reflow" id="myall-table">';
@@ -39,12 +43,14 @@ $(document).on('pageinit', "#allEntry", function(event) {
                                 + '<td bgcolor="#ffffff"><b class="ui-table-cell-label">Zipcode</b>'+ data[index].zip + "</td></tr>";
                             });
 
+                            // refresh the page and set records
                             $("#results-all").html("");
                             $("#results-all").html($results + "</table>");
 
 
                         },
                         error: function(){
+                          // if the data retrieval per page is failed
                           alert("function called but failed");
                         }
                     });
@@ -149,7 +155,7 @@ $("#searchKey").submit(function() {
     return false;
 });
 
-
+// if new record page gets ready, it will produce unique id value without asking user input
 $("#newRec").ready(function() {
     $.ajax({
         type: "GET",
@@ -157,10 +163,11 @@ $("#newRec").ready(function() {
         dataType: 'jsonp',
         success: function(data){
 
+            // get the maximum number by request and inclement the number by one
             $num = data[0].id;
             $num++;
 
-            $("#newRec #id").val($num);
+            $("#newRec #id").val($num); // set unique value
 
         },
         xhrFields: {
@@ -172,6 +179,7 @@ $("#newRec").ready(function() {
     });
 });
 
+// jQuery Form Validator plugin is used and validate functionality is added to add record form
 $(document).on('pageinit', "#newRec", function(event) {
     $.validate({
             form : '#form-new-record',
@@ -183,6 +191,7 @@ $(document).on('pageinit', "#newRec", function(event) {
                   return false;
                 },
                 onSuccess : function() {
+                // if all inputs are valid, insert record request is sent
                   if (confirm("The following data will be added:\nID:" + $("#id").val() + " Name:" + $("#fname").val() +" "+$("#lname").val()+"\nEmail: "+$("#email").val()+"\nZip: "+ $("#zip").val()))
                     {
                         $.ajax({

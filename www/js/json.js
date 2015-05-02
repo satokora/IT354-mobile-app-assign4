@@ -82,8 +82,6 @@ $(document).on('pageinit', "#allEntry", function(event) {
         }
     });
 
-
-
 });
 
 
@@ -174,33 +172,46 @@ $("#newRec").ready(function() {
     });
 });
 
-$("#form-new-record").submit(function(){
-    if (confirm("The following data will be added:\nID:" + $("#id").val() + " Name:" + $("#fname").val() +" "+$("#lname").val()+"\nEmail: "+$("#email").val()+"\nZip: "+ $("#zip").val()))
-    {
-        $.ajax({
-            type: "POST",
-            url: 'http://skora.it354.com/restserver/api/email/user',
-            crossDomain: true,
-            data: { 
-            'id': $("#id").val(), 
-            'fname': $("#fname").val(),
-            'lname': $("#lname").val(),
-            'email': $("#email").val(),
-            'zip': $("#zip").val()
-            },
-            success: function(data){
-              
-            },
-            error: function(){
-              
-            }
+$(document).on('pageinit', "#newRec", function(event) {
+    $.validate({
+            form : '#form-new-record',
+            validateOnBlur : true, // disable validation when input looses focus
+            errorMessagePosition : 'top', // Instead of 'element' which is default
+            scrollToTopOnError : false, // Set this property to true if you have a long form
+            onError : function() {
+                  alert('Validation failed');
+                  return false;
+                },
+                onSuccess : function() {
+                  if (confirm("The following data will be added:\nID:" + $("#id").val() + " Name:" + $("#fname").val() +" "+$("#lname").val()+"\nEmail: "+$("#email").val()+"\nZip: "+ $("#zip").val()))
+                    {
+                        $.ajax({
+                            type: "POST",
+                            url: 'http://skora.it354.com/restserver/api/email/user',
+                            crossDomain: true,
+                            data: { 
+                            'id': $("#id").val(), 
+                            'fname': $("#fname").val(),
+                            'lname': $("#lname").val(),
+                            'email': $("#email").val(),
+                            'zip': $("#zip").val()
+                            },
+                            success: function(data){
+                              
+                            },
+                            error: function(){
+                              
+                            }
+                        });
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                },
+                onElementValidate : function(valid, $el, $form, errorMess) {
+                  console.log('Input ' +$el.attr('name')+ ' is ' + ( valid ? 'VALID':'NOT VALID') );
+                }
         });
-    }
-    else
-    {
-        return false;
-    }
-    
-
 });
 

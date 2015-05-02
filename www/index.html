@@ -74,6 +74,7 @@
             <a href="#homeScreen"><img src="img/green-leaf.jpg" class="banner" /></a>
             <div data-role="content">
                 <h4>Let's add a new contact</h4>
+                <div id="email-error-dialog"></div>
                 <form id="form-new-record" method="post">
                     <div data-role="fieldcontain">
                         <label for="id">New user ID:</label>
@@ -89,11 +90,11 @@
                     </div>
                     <div data-role="fieldcontain">
                         <label for="zip">Zip Code:</label>
-                        <input type="text" name="zip" id="zip" value=""  />
+                        <input type="text" name="zip" id="zip" value="" data-validation="length" data-validation-length="5-9"  data-validation-error-msg="You did not enter a valid zip code" data-validation-error-msg-container="#email-error-dialog" />
                     </div>  
                     <div data-role="fieldcontain">
                         <label for="email">Email address:</label>
-                        <input type="email" name="email" id="email" value=""  />
+                        <input type="email" name="email" id="email" value=""  data-validation="email"  data-validation-error-msg="You did not enter a valid e-mail" data-validation-error-msg-container="#email-error-dialog" />
                     </div>  
                     <input type="submit" name="go" value="Submit" data-theme="b">
                 </form>
@@ -103,13 +104,12 @@
             </div>
         </div>
 
-
         <script src="js/jquery-1.11.2.min.js"></script>
-        
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery-bootstrap-pagination.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/json.js"></script>
+        <script src="js/form-validator/jquery.form-validator.min.js"></script>
 
         
     </body>
